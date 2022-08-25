@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaHouseApp.UI", "PizzaHouseApp.UI\PizzaHouseApp.UI.csproj", "{9CAE913A-E12E-4F78-AC98-7CCB4CA8CE8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaHouseApp.UI", "PizzaHouseApp.UI\PizzaHouseApp.UI.csproj", "{9CAE913A-E12E-4F78-AC98-7CCB4CA8CE8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaHouseApp.Models", "PizzaHouseApp.Models\PizzaHouseApp.Models.csproj", "{9646FF4D-D740-42C9-AE8B-43AECC2D2DC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaHouseApp.Dal", "PizzaHouseApp.Dal\PizzaHouseApp.Dal.csproj", "{91FFCEB6-13A7-4A1F-BAB1-AADC964811E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{9CAE913A-E12E-4F78-AC98-7CCB4CA8CE8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CAE913A-E12E-4F78-AC98-7CCB4CA8CE8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CAE913A-E12E-4F78-AC98-7CCB4CA8CE8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9646FF4D-D740-42C9-AE8B-43AECC2D2DC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9646FF4D-D740-42C9-AE8B-43AECC2D2DC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9646FF4D-D740-42C9-AE8B-43AECC2D2DC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9646FF4D-D740-42C9-AE8B-43AECC2D2DC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91FFCEB6-13A7-4A1F-BAB1-AADC964811E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91FFCEB6-13A7-4A1F-BAB1-AADC964811E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91FFCEB6-13A7-4A1F-BAB1-AADC964811E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91FFCEB6-13A7-4A1F-BAB1-AADC964811E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -16,6 +16,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PizzaHouseApp.Dal\PizzaHouseApp.Dal.csproj" />
+    <ProjectReference Include="..\PizzaHouseApp.Models\PizzaHouseApp.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Images\Icons\cart.png" />
     <Resource Include="Images\Icons\close.png" />
     <Resource Include="Images\Icons\home.png" />

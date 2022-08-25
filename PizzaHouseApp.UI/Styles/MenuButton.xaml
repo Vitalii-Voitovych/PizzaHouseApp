@@ -11,6 +11,12 @@
                         <Border CornerRadius="7"
                                 Background="{TemplateBinding Background}"
                                 x:Name="Border">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="2"
+                                                  ShadowDepth="3"
+                                                  Opacity="0.7"
+                                                  Color="#000000"/>
+                            </Border.Effect>
                             <Grid VerticalAlignment="Stretch"
                                   HorizontalAlignment="Stretch">
                                 <Image Source="{TemplateBinding Icon}"
@@ -37,7 +43,7 @@
         </Style.Setters>
         <Style.Triggers>
             <Trigger Property="IsChecked" Value="True">
-                <Setter Property="Background" Value="#1c2129"/>
+                <Setter Property="Background" Value="#232932"/>
                 <Setter Property="Foreground" Value="#45171d"/>
             </Trigger>
         </Style.Triggers>
