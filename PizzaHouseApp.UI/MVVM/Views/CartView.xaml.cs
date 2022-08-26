@@ -13,21 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PizzaHouseApp.UI
+namespace PizzaHouseApp.UI.MVVM.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для CartView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class CartView : UserControl
     {
-        public MainWindow()
+        public CartView()
         {
             InitializeComponent();
-        }
-
-        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
         }
     }
 }

@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace PizzaHouseApp.UI.UserControl
+namespace PizzaHouseApp.UI.UserControls
 {
     public class MenuButton : RadioButton
     {

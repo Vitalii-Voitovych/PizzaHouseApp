@@ -4,13 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PizzaHouseApp.UI"
-        xmlns:uc="clr-namespace:PizzaHouseApp.UI.UserControl"
+        xmlns:uc="clr-namespace:PizzaHouseApp.UI.UserControls"
+        xmlns:viewModel="clr-namespace:PizzaHouseApp.UI.MVVM.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="550" Width="1000"
         ResizeMode="NoResize"
         WindowStyle="None"
         Background="Transparent"
-        AllowsTransparency="True">
+        AllowsTransparency="True"
+        x:Name="MainView">
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
     <Border CornerRadius="15"
             Background="#1f242d">
         <Grid>
@@ -27,7 +32,8 @@
                     BorderBrush="#282e37"
                     BorderThickness="0 0 0 1"
                     Background="#1c2129"
-                    CornerRadius="15,15,0,0">
+                    CornerRadius="15,15,0,0"
+                    MouseLeftButtonDown="Border_MouseLeftButtonDown">
                 <DockPanel Background="Transparent"
                            VerticalAlignment="Center"
                            Margin="12,0">
@@ -43,10 +49,14 @@
                     </StackPanel>
                     <uc:IconButton Icon="Images/Icons/close.png"
                                    Style="{StaticResource HeaderButtonStyle}"
-                                   DockPanel.Dock="Right"/>
+                                   DockPanel.Dock="Right"
+                                   Command="{Binding CloseCommand}"
+                                   CommandParameter="{Binding ElementName=MainView}"/>
                     <uc:IconButton Icon="Images/Icons/minus.png"
                                    Style="{StaticResource HeaderButtonStyle}"
-                                   HorizontalAlignment="Right"/>
+                                   HorizontalAlignment="Right" Cursor="Hand"
+                                   Command="{Binding MinimizeCommand}"
+                                   CommandParameter="{Binding ElementName=MainView}"/>
                 </DockPanel>
             </Border>
 
@@ -56,13 +66,22 @@
                 <StackPanel Margin="0,10,0,0">
                     <uc:MenuButton Icon="Images/Icons/home.png"
                                    Style="{StaticResource MenuButtonStyle}"
-                                   IsChecked="True" Cursor="Hand"/>
+                                   IsChecked="True" 
+                                   Cursor="Hand"
+                                   Command="{Binding HomeCommand}"/>
                     <uc:MenuButton Icon="Images/Icons/menu.png"
-                                   Style="{StaticResource MenuButtonStyle}" Cursor="Hand"/>
+                                   Style="{StaticResource MenuButtonStyle}"
+                                   Cursor="Hand"
+                                   Command="{Binding MenuCommand}"/>
                     <uc:MenuButton Icon="Images/Icons/cart.png"
-                                   Style="{StaticResource MenuButtonStyle}"/>
+                                   Style="{StaticResource MenuButtonStyle}"
+                                   Cursor="Hand"
+                                   Command="{Binding CartCommand}"/>
                 </StackPanel>
             </Border>
+            <ContentControl Grid.Row="1"
+                            Grid.Column="1"
+                            Content="{Binding CurrentView}"/>
         </Grid>
     </Border>
 </Window>
