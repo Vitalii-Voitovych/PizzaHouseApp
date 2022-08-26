@@ -16,5 +16,7 @@ namespace PizzaHouseApp.Models.Entities
 
         public bool IsWithMeat { get; set; }
         public decimal Price { get; set; }
+
+        public IEnumerable<Payment> Payments { get; set; } = new List<Payment>();
     }
 }

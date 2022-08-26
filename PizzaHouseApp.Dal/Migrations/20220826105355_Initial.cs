@@ -63,66 +63,31 @@ namespace PizzaHouseApp.Dal.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "OrderMenus",
-                columns: table => new
-                {
-                    OrderMenuId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    OrderId = table.Column<int>(type: "int", nullable: false),
-                    PizzaId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_OrderMenus", x => x.OrderMenuId);
-                    table.ForeignKey(
-                        name: "FK_OrderMenus_Orders_OrderId",
-                        column: x => x.OrderId,
-                        principalTable: "Orders",
-                        principalColumn: "OrderId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_OrderMenus_Pizzas_PizzaId",
-                        column: x => x.PizzaId,
-                        principalTable: "Pizzas",
-                        principalColumn: "PizzaId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Payments",
                 columns: table => new
                 {
                     PaymentId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    OrderMenuId = table.Column<int>(type: "int", nullable: false),
-                    PaymentDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    OrderId = table.Column<int>(type: "int", nullable: true)
+                    OrderId = table.Column<int>(type: "int", nullable: false),
+                    PizzaId = table.Column<int>(type: "int", nullable: false),
+                    PaymentDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Payments", x => x.PaymentId);
                     table.ForeignKey(
-                        name: "FK_Payments_OrderMenus_OrderMenuId",
-                        column: x => x.OrderMenuId,
-                        principalTable: "OrderMenus",
-                        principalColumn: "OrderMenuId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
                         name: "FK_Payments_Orders_OrderId",
                         column: x => x.OrderId,
                         principalTable: "Orders",
-                        principalColumn: "OrderId");
+                        principalColumn: "OrderId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Payments_Pizzas_PizzaId",
+                        column: x => x.PizzaId,
+                        principalTable: "Pizzas",
+                        principalColumn: "PizzaId",
+                        onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_OrderMenus_OrderId",
-                table: "OrderMenus",
-                column: "OrderId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_OrderMenus_PizzaId",
-                table: "OrderMenus",
-                column: "PizzaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Orders_CustomerId",
@@ -135,19 +100,15 @@ namespace PizzaHouseApp.Dal.Migrations
                 column: "OrderId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Payments_OrderMenuId",
+                name: "IX_Payments_PizzaId",
                 table: "Payments",
-                column: "OrderMenuId",
-                unique: true);
+                column: "PizzaId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "Payments");
-
-            migrationBuilder.DropTable(
-                name: "OrderMenus");
 
             migrationBuilder.DropTable(
                 name: "Orders");

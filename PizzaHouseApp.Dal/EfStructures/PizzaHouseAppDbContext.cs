@@ -14,7 +14,6 @@ namespace PizzaHouseApp.Dal.EfStructures
         public DbSet<Customer>? Customers { get; set; }
         public DbSet<Pizza>? Pizzas { get; set; }
         public DbSet<Order>? Orders { get; set; }
-        public DbSet<OrderMenu>? OrderMenus { get; set; }
         public DbSet<Payment>? Payments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

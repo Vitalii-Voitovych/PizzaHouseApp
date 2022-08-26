@@ -72,29 +72,6 @@ namespace PizzaHouseApp.Dal.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("PizzaHouseApp.Models.Entities.OrderMenu", b =>
-                {
-                    b.Property<int>("OrderMenuId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderMenuId"), 1L, 1);
-
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PizzaId")
-                        .HasColumnType("int");
-
-                    b.HasKey("OrderMenuId");
-
-                    b.HasIndex("OrderId");
-
-                    b.HasIndex("PizzaId");
-
-                    b.ToTable("OrderMenus");
-                });
-
             modelBuilder.Entity("PizzaHouseApp.Models.Entities.Payment", b =>
                 {
                     b.Property<int>("PaymentId")
@@ -103,21 +80,20 @@ namespace PizzaHouseApp.Dal.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PaymentId"), 1L, 1);
 
-                    b.Property<int?>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("OrderMenuId")
+                    b.Property<int>("OrderId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("PaymentDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("PizzaId")
+                        .HasColumnType("int");
+
                     b.HasKey("PaymentId");
 
                     b.HasIndex("OrderId");
 
-                    b.HasIndex("OrderMenuId")
-                        .IsUnique();
+                    b.HasIndex("PizzaId");
 
                     b.ToTable("Payments");
                 });
@@ -166,38 +142,23 @@ namespace PizzaHouseApp.Dal.Migrations
                     b.Navigation("CustomerNavigation");
                 });
 
-            modelBuilder.Entity("PizzaHouseApp.Models.Entities.OrderMenu", b =>
+            modelBuilder.Entity("PizzaHouseApp.Models.Entities.Payment", b =>
                 {
-                    b.HasOne("PizzaHouseApp.Models.Entities.Order", "OrderNavigation")
-                        .WithMany()
+                    b.HasOne("PizzaHouseApp.Models.Entities.Order", "Order")
+                        .WithMany("Payments")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("PizzaHouseApp.Models.Entities.Pizza", "PizzaNavigation")
-                        .WithMany()
+                    b.HasOne("PizzaHouseApp.Models.Entities.Pizza", "Pizza")
+                        .WithMany("Payments")
                         .HasForeignKey("PizzaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("OrderNavigation");
+                    b.Navigation("Order");
 
-                    b.Navigation("PizzaNavigation");
-                });
-
-            modelBuilder.Entity("PizzaHouseApp.Models.Entities.Payment", b =>
-                {
-                    b.HasOne("PizzaHouseApp.Models.Entities.Order", null)
-                        .WithMany("Payments")
-                        .HasForeignKey("OrderId");
-
-                    b.HasOne("PizzaHouseApp.Models.Entities.OrderMenu", "OrderMenuNavigation")
-                        .WithOne("PaymentNavigation")
-                        .HasForeignKey("PizzaHouseApp.Models.Entities.Payment", "OrderMenuId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("OrderMenuNavigation");
+                    b.Navigation("Pizza");
                 });
 
             modelBuilder.Entity("PizzaHouseApp.Models.Entities.Customer", b =>
@@ -210,9 +171,9 @@ namespace PizzaHouseApp.Dal.Migrations
                     b.Navigation("Payments");
                 });
 
-            modelBuilder.Entity("PizzaHouseApp.Models.Entities.OrderMenu", b =>
+            modelBuilder.Entity("PizzaHouseApp.Models.Entities.Pizza", b =>
                 {
-                    b.Navigation("PaymentNavigation");
+                    b.Navigation("Payments");
                 });
 #pragma warning restore 612, 618
         }
