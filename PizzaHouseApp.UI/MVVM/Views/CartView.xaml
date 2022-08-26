@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:PizzaHouseApp.UI.MVVM.Views"
              xmlns:viewModel="clr-namespace:PizzaHouseApp.UI.MVVM.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="480" d:DesignWidth="915">
+             d:DesignHeight="580" d:DesignWidth="1065">
     <UserControl.DataContext>
         <viewModel:CartViewModel/>
     </UserControl.DataContext>

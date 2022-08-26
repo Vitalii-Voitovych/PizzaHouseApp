@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace PizzaHouseApp.Models.Entities
+namespace PizzaHouseApp.Models
 {
     public class ObservableObject : INotifyPropertyChanged
     {

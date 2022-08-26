@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PizzaHouseApp.UI.MVVM.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="480" d:DesignWidth="915">
+             d:DesignHeight="580" d:DesignWidth="1065">
     <StackPanel>
         <TextBlock Text="Home"
                    Foreground="White"
