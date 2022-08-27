@@ -10,13 +10,13 @@ namespace PizzaHouseApp.UI.MVVM.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
-        private BaseViewModel? currentView;
+        private BaseViewModel? _currentView;
         public BaseViewModel? CurrentView
         {
-            get => currentView;
+            get => _currentView;
             set
             {
-                currentView = value;
+                _currentView = value;
                 OnPropertyChanged();
             }
         }

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PizzaHouseApp.UI.MVVM.Views"
+             xmlns:uc="clr-namespace:PizzaHouseApp.UI.UserControls"
              xmlns:viewModel="clr-namespace:PizzaHouseApp.UI.MVVM.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="580" d:DesignWidth="1065">
@@ -11,15 +12,16 @@
         <viewModel:MenuViewModel/>
     </UserControl.DataContext>
     <StackPanel Margin="10,0">
-        <TextBlock Text="Menu"
-                   Foreground="White"
+        <TextBlock Text="Меню"
+                   Foreground="#e0e0e1"
                    FontSize="28"
                    FontWeight="Bold"
                    HorizontalAlignment="Center"/>
         <ListBox ItemsSource="{Binding Pizzas}"
                  Background="Transparent"
                  BorderThickness="0"
-                 ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 x:Name="MenuListBox">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel IsItemsHost="True"
@@ -65,7 +67,9 @@
                                            Foreground="#e0e0e1"
                                            FontSize="24"
                                            FontWeight="Black"
-                                           FontStyle="Italic"/>
+                                           FontStyle="Italic"
+                                           TextWrapping="WrapWithOverflow"
+                                           Width="147"/>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Text="Розмір: "
                                                Foreground="#e0e0e1"
@@ -109,8 +113,24 @@
                             <StackPanel Orientation="Horizontal"
                                     HorizontalAlignment="Right"
                                     Margin="10,5,15,7">
+                                <StackPanel Orientation="Horizontal"
+                                            Margin="0,0,10,0">
+                                    <uc:IconButton Icon="/Images/Icons/plus.png"
+                                                   Style="{StaticResource UpDownButtonStyle}"
+                                                   Command="{Binding ElementName=MenuListBox, Path=DataContext.UpNumberCommand}"/>
+                                    <uc:IconButton Icon="/Images/Icons/minus.png"
+                                                   Style="{StaticResource UpDownButtonStyle}"
+                                                   Command="{Binding ElementName=MenuListBox, Path=DataContext.DownNumberCommand}"/>
+                                    <TextBlock Text="{Binding ElementName=MenuListBox, Path=DataContext.Number}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               Foreground="#e0e0e1"
+                                               FontSize="20"
+                                               FontWeight="Bold"
+                                               Margin="5,0,0,0"/>
+                                </StackPanel>
                                 <Button Content="У кошик"
-                                    Style="{StaticResource AddPizzaButoonStyle}"/>
+                                    Style="{StaticResource AddPizzaButtonStyle}"/>
                             </StackPanel>
                         </StackPanel>
                     </Border>

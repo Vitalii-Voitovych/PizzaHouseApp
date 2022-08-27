@@ -12,7 +12,9 @@
     </UserControl.DataContext>
     <StackPanel>
         <TextBlock Text="Cart"
-                   Foreground="White"
-                   FontSize="36"/>
+                   Foreground="#e0e0e1"
+                   FontSize="28"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center"/>
     </StackPanel>
 </UserControl>
