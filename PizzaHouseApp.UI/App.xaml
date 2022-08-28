@@ -8,10 +8,11 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Styles/HeaderButton.xaml"/>
+                <ResourceDictionary Source="Styles/IconButton.xaml"/>
                 <ResourceDictionary Source="Styles/MenuButton.xaml"/>
-                <ResourceDictionary Source="Styles/AddPizzaButton.xaml"/>
+                <ResourceDictionary Source="Styles/RedRectangleButton.xaml"/>
                 <ResourceDictionary Source="Styles/UpDownButton.xaml"/>
+                <ResourceDictionary Source="Styles/DarkRectangleButton.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
                 <view:HomeView/>

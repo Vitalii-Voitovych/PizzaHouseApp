@@ -45,7 +45,11 @@ namespace PizzaHouseApp.Models
             UpdatePrice();
         }
 
-        public void Clear() => Pizzas.Clear();
+        public void Clear()
+        {
+            Pizzas.Clear();
+            UpdatePrice();
+        }
         public void UpdatePrice() => Price = GetAll().Sum(p => p.Price);
 
         public void Add(Pizza pizza, int count)
@@ -59,6 +63,13 @@ namespace PizzaHouseApp.Models
             {
                 Pizzas.Add(new CartItem(pizza, count));
             }
+            UpdatePrice();
+        }
+
+        public void Remove(CartItem cartItem)
+        {
+            Pizzas.Remove(cartItem);
+            UpdatePrice();
         }
 
         private List<Pizza> GetAll()

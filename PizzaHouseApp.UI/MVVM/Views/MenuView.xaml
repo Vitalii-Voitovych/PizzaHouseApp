@@ -130,7 +130,9 @@
                                                Margin="5,0,0,0"/>
                                 </StackPanel>
                                 <Button Content="У кошик"
-                                    Style="{StaticResource AddPizzaButtonStyle}"/>
+                                        Style="{StaticResource RedRectangleButtonStyle}" Cursor="Hand"
+                                        Command="{Binding ElementName=MenuListBox, Path=DataContext.AddToCartCommand}"
+                                        CommandParameter="{Binding}"/>
                             </StackPanel>
                         </StackPanel>
                     </Border>

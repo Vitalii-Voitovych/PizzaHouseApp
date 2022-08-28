@@ -8,7 +8,8 @@ namespace PizzaHouseApp.UI.MVVM.ViewModels
     public partial class MenuViewModel : BaseViewModel
     {
         public List<Pizza>? Pizzas { get; }
-
+        
+        //TODO: Вирішити проблему із кількустю
         private int _number = 0;
         public int Number
         {
@@ -44,7 +45,7 @@ namespace PizzaHouseApp.UI.MVVM.ViewModels
             });
             AddToCartCommand = new RelayCommand<Pizza>((pizza) =>
             {
-
+                Cart.Add(pizza, Number);
             });
         }
     }

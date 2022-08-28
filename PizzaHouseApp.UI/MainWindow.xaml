@@ -48,12 +48,12 @@
                                VerticalAlignment="Bottom"/>
                     </StackPanel>
                     <uc:IconButton Icon="Images/Icons/close.png"
-                                   Style="{StaticResource HeaderButtonStyle}"
+                                   Style="{StaticResource IconButtonStyle}"
                                    DockPanel.Dock="Right"
                                    Command="{Binding CloseCommand}"
                                    CommandParameter="{Binding ElementName=MainView}"/>
                     <uc:IconButton Icon="Images/Icons/minus.png"
-                                   Style="{StaticResource HeaderButtonStyle}"
+                                   Style="{StaticResource IconButtonStyle}"
                                    HorizontalAlignment="Right" Cursor="Hand"
                                    Command="{Binding MinimizeCommand}"
                                    CommandParameter="{Binding ElementName=MainView}"/>

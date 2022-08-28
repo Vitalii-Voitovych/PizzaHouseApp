@@ -9,6 +9,7 @@ namespace PizzaHouseApp.UI.MVVM.ViewModels
     {
         private static readonly PizzaHouseAppDbContextFactory factory = new();
         public PizzaHouseAppDbContext Context { get; } = factory.CreateDbContext(new string[1]);
+        public static Cart Cart { get; } = new();
 
         public RelayCommand<Window> CloseCommand { get; }
             = new RelayCommand<Window>(window => window.Close());
